@@ -19,7 +19,7 @@
 			}
 			if(!osize.h || !osize.w) return;
 			
-			//親要素の指定
+			//親要素の指定・サイズ
 			$parent = (opts.parent)?opts.parent:$this.parent();
 			var psize = {
 					h : $parent.height(),
@@ -59,7 +59,7 @@
 						width:osize.w*nsize.h/osize.h
 					});
 				}
-				if(opts.verticalCentring){//上下のセンタリング
+				if(opts.verticalCentering){//上下のセンタリング
 					nsize.h = parseFloat($this.css('height'));
 					if(psize.h>osize.h){
 						$this.css({
@@ -89,7 +89,7 @@
 						width:psize.w,
 						height:osize.h*psize.w/osize.w
 					});
-					if(opts.verticalCentring){//上下のセンタリング
+					if(opts.verticalCentering){//上下のセンタリング
 						$this.css({
 							marginTop:(psize.h-osize.h*psize.w/osize.w)/2
 						});
@@ -113,6 +113,6 @@
 		mode				: 'outer', //inner / outer
 		parent				: null,
 		horizontalCentering	: true,
-		verticalCentring	: true
+		verticalCentering	: true
 	};
 })(jQuery);
