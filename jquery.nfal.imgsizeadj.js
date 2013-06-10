@@ -2,30 +2,31 @@
  * NFAL Image Size Adjuster - jQuery Plugin
  *
  * Copyright 2013, Near Future Arts Lab Co.,Ltd.
+ * http://kinbi.net
  *
- * Version: 0.0.2 (11/06/2013)
+ * Version: 0.0.3 (11/06/2013)
  */
 (function ($) {
 	$.fn.imgSizeAdj = function(options) {
-		var init = function(){
+		return this.each(function(){
 			var opts = $.extend({}, $.fn.imgSizeAdj.defaults, options);
 			var $this = $(this);
-			// 表示時の大きさ
+			
+			// オリジナルのサイズ
 			var osize = {
 				h :  (opts.height)?opts.height:$this.attr('height'),
 				w :  (opts.width)?opts.width:$this.attr('width')
 			}
-			
 			if(!osize.h || !osize.w) return;
 			
 			//親要素の指定
 			$parent = (opts.parent)?opts.parent:$this.parent();
-						
 			var psize = {
 					h : $parent.height(),
 					w : $parent.width()
 			}
 			
+			//リサイズ処理
 			if(opts.mode == 'inner'){ //親要素を埋めるように配置
 				if(osize.h>psize.h){
 					$this.css({
@@ -104,15 +105,8 @@
 						});
 					}
 				}
-			}
-	
-		}
-	
-		this.each(function(){
-			init.apply($(this));
-		})
-	
-		return this;
+			}	
+		});
 	};
 	
 	$.fn.imgSizeAdj.defaults = {
