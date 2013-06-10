@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>NFAL Image Size Adjuster - jQuery Plugin</title>
+<style type="text/css">
+body{
+	margin: 0;
+	padding: 0;
+	font: 16px/1.4 "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+a{
+	color: #66580d;
+}
+#main {
+	margin: 0 auto;
+	padding: 5%;
+	background: #fedc21;
+}
+#main h1{
+	margin:0 0 20px 0;
+	padding:0;
+	text-shadow: 0 1px 1px #ffffff;
+	font-size:55px;
+	font-weight:normal;
+	line-height:1;
+	color: #222;
+}
+#main h2{
+	border-top:1px solid #fff;
+	margin-bottom:10px;
+	padding-top:10px;
+	font-weight:normal;
+	font-size:30px;
+}
+#main h3{
+	border-top:1px solid rgba(255,255,255,0.7);
+	margin-bottom:10px;
+	padding-top:10px;
+	font-weight:normal;
+	font-size:18px;
+}
+pre{
+	border:1px solid #666;
+	background:rgba(255,255,255,0.8);
+	padding:10px;
+	line-height:1.4;
+	font-size:14px;
+	clear: both;
+}
+table{
+	border-collapse:collapse;
+}
+th,td{
+	border: 1px solid #666;
+	background:rgba(255,255,255,0.8);
+	padding: 7px;
+	font-size:12px;
+}
+.ex{
+	overflow: hidden;
+}
+#footer{
+	margin: 0 auto;
+	padding: 3% 5%;
+	background: #cbb01a;
+	color: #fff;
+	overflow: hidden;
+}
+#footer .logo{
+	float: left;
+	width: 80px;
+}
+#footer .logo img{
+	max-width: 100%;
+	height: auto;
+}
+#footer .logo a:hover img{
+	opacity: 0.8;
+}
+#footer .copy{
+	float: right;
+	text-align: right;
+	padding-top:30px;
+}
+
+
+.parent1,
+.parent2,
+.parent3{
+	overflow: hidden;
+	background: url('img/bg.png');
+	border: 5px solid #fff;
+	margin-bottom:20px;
+	margin-right:20px;
+	float: left;
+}
+.parent1{
+	width: 200px;
+	height: 200px;
+}
+.parent2{
+	width: 300px;
+	height: 200px;
+}
+.parent3{
+	width: 200px;
+	height: 300px;
+}
+
+</style>
+</head>
+
+<body>
+<div id="main">
+	<h1>NFAL Image Size Adjuster - jQuery Plugin</h1>
+	<p>画像を親要素に合わせて縮小し、中心に配置するプラグインです</p>
+	<ul id="nav">
+		<li><a href="#example">Example</a></li>
+		<li><a href="#options">Options</a></li>
+		<li><a href="#download">Download</a></li>
+	</ul>
+	<div id="Example">
+		<h2>Example</h2>
+		<p>オリジナル画像（600×450px）<br />
+		<img src="img/image.jpg" width="600" height="450" alt="Original image" /></p>
+		
+		<div class="ex">
+			<h3>1.親要素を埋めるように配置</h3>
+			<div class="parent1">
+				<img src="img/image.jpg" width="600" height="450" alt="Original image" class="adjust1" />
+			</div>
+			<div class="parent2">
+				<img src="img/image.jpg" width="600" height="450" alt="Original image" class="adjust1" />
+			</div>
+			<div class="parent3">
+				<img src="img/image.jpg" width="600" height="450" alt="Original image" class="adjust1" />
+			</div>
+			<pre>$('.adjust1').imgSizeAdj({mode:'outer'});</pre>
+		</div>
+		
+		<div class="ex">
+			<h3>2.親要素からはみ出ないように配置</h3>
+			<div class="parent1">
+				<img src="img/image.jpg" width="600" height="450" alt="Original image" class="adjust2" />
+			</div>
+			<div class="parent2">
+				<img src="img/image.jpg" width="600" height="450" alt="Original image" class="adjust2" />
+			</div>
+			<div class="parent3">
+				<img src="img/image.jpg" width="600" height="450" alt="Original image" class="adjust2" />
+			</div>
+			<pre>$('.adjust2').imgSizeAdj({mode:'inner'});</pre>
+		</div>
+	</div>
+
+	<div id="options">
+		<h2>Options</h2>
+		<table>
+		<tr>
+			<th>Name</th>
+			<th>デフォルト値</th>
+			<th>説明</th>
+		</tr>
+		<tr>
+			<td>mode</td>
+			<td>'outer'</td>
+			<td>'outer' 親要素を埋めるように配置<br />
+			'inner' 親要素からはみ出ないように配置</td>
+		</tr>
+		<tr>
+			<td>parent</td>
+			<td>null</td>
+			<td>親要素を指定する場合<br />
+				例) parent:'.parent'<br /></td>
+		</tr>
+		<tr>
+			<td>horizontalCentering</td>
+			<td>true</td>
+			<td>水平方向のセンタリングを行わない場合はfalse</td>
+		</tr>
+		<tr>
+			<td>verticalCentring</td>
+			<td>true</td>
+			<td>垂直方向のセンタリングを行わない場合はfalse</td>
+		</tr>
+		</table>
+	</div>
+	
+	<div id="download">
+		<h2>Download</h2>
+		<p><a href="https://github.com/dtsuka/jquery-nfal.fixed2top">https://github.com/dtsuka/jquery-nfal.fixed2top</a></p>
+	</div>
+</div>
+<div id="footer">
+	<p class="logo"><a href="http://kinbi.net"><img src="img/logo.png" alt="近未来美術研究所" /></a></p>
+	<p class="copy">Copyright © Near Future Arts Lab Co.,Ltd. All Rights Reserved.</p>
+</div>
+
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="other.js"></script>
+<script type="text/javascript" src="jquery.nfal.imgsizeadj.js"></script>
+<script language="JavaScript" type="text/javascript">
+jQuery(function($){
+	$('.adjust1').imgSizeAdj({mode:'outer'});
+	$('.adjust2').imgSizeAdj({mode:'inner'});
+});
+</script>
+</body>
+</html>
