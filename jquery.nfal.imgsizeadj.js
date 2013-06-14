@@ -4,7 +4,7 @@
  * Copyright 2013, Near Future Arts Lab Co.,Ltd.
  * http://kinbi.net
  *
- * Version: 0.0.3 (11/06/2013)
+ * Version: 0.0.4 (14/06/2013)
  */
 (function ($) {
 	$.fn.imgSizeAdj = function(options) {
@@ -27,7 +27,7 @@
 			}
 			
 			//リサイズ処理
-			if(opts.mode == 'inner'){ //親要素を埋めるように配置
+			if(opts.mode == 'inner'){ //親要素に収まる最大サイズで配置
 				if(osize.h>psize.h){
 					$this.css({
 						height:psize.h
@@ -61,29 +61,18 @@
 				}
 				if(opts.verticalCentering){//上下のセンタリング
 					nsize.h = parseFloat($this.css('height'));
-					if(psize.h>osize.h){
-						$this.css({
-							marginTop:(psize.h-osize.h)/2
-						});
-					}else{
-						$this.css({
-							marginTop:(psize.h-nsize.h)/2
-						});
-					}
+					$this.css({
+						marginTop:(psize.h-nsize.h)/2
+					});
+					
 				}
 				if(opts.horizontalCentering){//左右のセンタリング
 					nsize.w = parseFloat($this.css('width'));
-					if(psize.w>osize.w){
-						$this.css({
-							marginLeft:(psize.w-osize.w)/2
-						});
-					}else{
-						$this.css({
-							marginLeft:(psize.w-nsize.w)/2
-						});
-					}
+					$this.css({
+						marginLeft:(psize.w-nsize.w)/2
+					});
 				}
-			}else if(opts.mode == 'outer'){ //親要素からはみ出すように配置
+			}else if(opts.mode == 'outer'){ //親要素を完全に覆う最小サイズで配置
 				if(osize.h/psize.h > osize.w/psize.w){
 					$this.css({
 						width:psize.w,

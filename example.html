@@ -14,17 +14,17 @@ a{
 }
 #main {
 	margin: 0 auto;
-	padding: 5%;
+	padding: 50px;
 	background: #fedc21;
 }
 #main h1{
 	margin:0 0 20px 0;
 	padding:0;
-	text-shadow: 0 1px 1px #ffffff;
-	font-size:55px;
+	font-size:60px;
 	font-weight:normal;
 	line-height:1;
 	color: #222;
+	font-family: 'Raleway', sans-serif;
 }
 #main h2{
 	border-top:1px solid #fff;
@@ -32,9 +32,10 @@ a{
 	padding-top:10px;
 	font-weight:normal;
 	font-size:30px;
+	font-family: 'Raleway', sans-serif;
 }
 #main h3{
-	border-top:1px solid rgba(255,255,255,0.7);
+	border-top:1px dotted rgba(255,255,255,0.8);
 	margin-bottom:10px;
 	padding-top:10px;
 	font-weight:normal;
@@ -62,7 +63,7 @@ th,td{
 }
 #footer{
 	margin: 0 auto;
-	padding: 3% 5%;
+	padding: 20px 50px;
 	background: #cbb01a;
 	color: #fff;
 	overflow: hidden;
@@ -109,6 +110,7 @@ th,td{
 }
 
 </style>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:300" />
 </head>
 
 <body>
@@ -126,7 +128,7 @@ th,td{
 		<img src="img/image.jpg" width="600" height="450" alt="Original image" /></p>
 		
 		<div class="ex">
-			<h3>1.親要素を埋めるように配置</h3>
+			<h3>1.親要素を完全に覆う最小サイズで配置</h3>
 			<div class="parent1">
 				<img src="img/image.jpg" width="600" height="450" alt="Original image" class="adjust1" />
 			</div>
@@ -140,7 +142,7 @@ th,td{
 		</div>
 		
 		<div class="ex">
-			<h3>2.親要素からはみ出ないように配置</h3>
+			<h3>2.親要素に収まる最大サイズで配置</h3>
 			<div class="parent1">
 				<img src="img/image.jpg" width="600" height="450" alt="Original image" class="adjust2" />
 			</div>
@@ -166,8 +168,8 @@ th,td{
 		<tr>
 			<td>mode</td>
 			<td>'outer'</td>
-			<td>'outer' 親要素を埋めるように配置<br />
-			'inner' 親要素からはみ出ないように配置</td>
+			<td>'outer' 親要素を完全に覆う最小サイズで配置<br />
+			'inner' 親要素に収まる最大サイズで配置</td>
 		</tr>
 		<tr>
 			<td>parent</td>
